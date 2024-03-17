@@ -1,0 +1,38 @@
+Problem Statement:
+You are given an array of non-overlapping intervals intervals where intervals[i] = [starti, endi]
+represent the start and the end of the ith interval and intervals is sorted in ascending order 
+by starti.You are also given an interval newInterval = [start, end] that represents the start 
+and end of another interval.
+
+Insert newInterval into intervals such that intervals is still sorted in ascending order
+by starti and intervals still does not have any overlapping intervals 
+(merge overlapping intervals if necessary).Return intervals after the insertion.
+
+Note that you don't need to modify intervals in-place. You can make a new array and return it.
+
+
+Sample Example:
+intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]
+
+Intuition:
+In the above example we need to insert the interval([4,8]) to our intervals array such that
+we dont disturb the order as well as we dont have any overlapping intervals.
+
+Logically we'll need to ensure two things:
+A)order
+B)Non overlapping
+
+A)For maintaining the order,We have again two options:(For above example it will be 2)
+    1)Do a linear search to find the correct position of the newInterval, ensuring the array is
+    still sorted in ascending order
+    2)Do a binary search and directly get the insert position
+
+B)Once we ensure the order, we also need to make sure that we dont have any overlapping intervals
+    ->For this we do a linear search through the array, once we find that adjacent intervals are overlapping
+    we keep merging and moving forward till we have no overlapping intervals.
+    -> We push the non-overlapping interval to our result array
+    ->For above example we see that [3,5] and [4,8] are overlapping, we merge them and make it
+    [min(3,4),max(5,8)], it becomes [3,8], now [3,8] overlaps with [6,7], we make it [3,8] and so on.
+    Finally we push [3,10] to our result.
+
+
