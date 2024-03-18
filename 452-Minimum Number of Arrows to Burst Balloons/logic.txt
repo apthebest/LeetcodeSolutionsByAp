@@ -1,0 +1,30 @@
+Problem Statement:
+There are some spherical balloons taped onto a flat wall that represents the XY-plane. 
+The balloons are represented as a 2D integer array points where points[i] = [xstart, xend] 
+denotes a balloon whose horizontal diameter stretches between xstart and xend. You do not 
+know the exact y-coordinates of the balloons.Arrows can be shot up directly vertically
+(in the positive y-direction) from different points along the x-axis. A balloon with 
+xstart and xend is burst by an arrow shot at x if xstart <= x <= xend. There is no 
+limit to the number of arrows that can be shot. A shot arrow keeps traveling up infinitely,
+bursting any balloons in its path.
+Given the array points, return the minimum number of arrows that must be shot
+to burst all balloons.
+
+
+--Thinking through the Problem--
+In the above problem we are asked to find the minimum number of arrays required to shot all 
+the balloons, also it is a mentioned that an arrow can burst through a balloon only if its x 
+co-ordinates is in the range of points[i][0] and points[i][1] inclusive. Essentially we need 
+to find a way we can have minimum number of arrows to burst allow the balloons.
+Since we are not given any y-coordinates for the balloons, we can simply consider these as 
+intervals, now we need to find out the smallest overlapping intervals count, such that there exists
+one common x-coordinate which will be shared by all those overlapping intervals.
+
+--Thinking through the Solution--
+Since we are clear that we just need to find number of smallest overlapping intervals with 
+atleast once common x-coordinate:
+1) Firstly we sort this array in ascending order of start points.
+2) Secondly, we maintain the end value to be the smallest possible for the overlapping intervals
+3) Now we count these intervals and return the total count as result
+
+ 
