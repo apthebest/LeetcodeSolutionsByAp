@@ -20,6 +20,6 @@ We only need do to three things:
 1)Simply get the node previous to the node at 'a' and point its next pointer to the head 
 of list2
 2)Store the pointer to last node of the list2 in a variable.
-3)Set the next pointer of this last node to the next pointer of the node at between
+3)Set the next pointer of this last node to the next pointer of the node at b
 
 And All Set...😊
