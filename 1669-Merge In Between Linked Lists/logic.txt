@@ -21,3 +21,6 @@ We only need do to three things:
 of list2
 2)Store the pointer to last node of the list2 in a variable.
 3)Set the next pointer of this last node to the next pointer of the node at b
+
+
+And All Set...😊
