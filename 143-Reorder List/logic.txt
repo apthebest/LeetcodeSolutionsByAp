@@ -1,0 +1,32 @@
+Problem Statement:
+    You are given the head of a singly linked-list. The list can be represented as:
+
+    L0 → L1 → … → Ln - 1 → Ln
+    Reorder the list to be on the following form:
+
+    L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
+    You may not modify the values in the list's nodes. Only nodes themselves may be changed.
+
+
+--Thinking through the problem:--
+    In this problem we are asked to shuffle this list such that, we have a node in order and then 
+    the subsequent node from the end of list and so on.
+    So essentially we wanna get two pointers , one pointing to the first node(head) and second pointing
+    to the last node, such that the first pointer moves forward and the second moves backward till
+    they are pointing to the same node(in case of odd number of nodes)
+
+--Thinking Throught the solution:--
+
+    --How can we achieve this pointers?--
+        The first one is pretty straight forward, for the second one we will need to traverse through
+        this list backwards, essentially we want to have the last value as first and so on.
+        What data structure comes in to mind?
+        Stack(Obviously).
+
+    --Now, how can we use stack to solve this problem?--
+        We divide the list into two halves, the second half we'll need to store the in the stack.
+        Now we take one element from the first half and next element from the stack's top and so on...
+
+
+
+And We Reach Moon...✨
