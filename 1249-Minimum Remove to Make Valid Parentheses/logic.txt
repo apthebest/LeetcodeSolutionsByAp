@@ -1,0 +1,41 @@
+Problem Statement:
+Given a string s of '(' , ')' and lowercase English characters.
+
+Your task is to remove the minimum number of parentheses ( '(' or ')', in any positions ) 
+so that the resulting parentheses string is valid and return any valid string.
+
+Formally, a parentheses string is valid if and only if:
+
+It is the empty string, contains only lowercase characters, or
+It can be written as AB (A concatenated with B), where A and B are valid strings, or
+It can be written as (A), where A is a valid string.
+ 
+
+Example 1:
+
+Input: s = "lee(t(c)o)de)"
+Output: "lee(t(c)o)de"
+Explanation: "lee(t(co)de)" , "lee(t(c)ode)" would also be accepted.
+
+
+Thinking through the problem:
+In this problem we are asked to make the string a valid one(i.e having no unbalanced parenthesis),
+we need to remove only the parenthesis which are unbalanced.
+
+Thinking through the solution:
+Consider the example  s= "a)b(c)d(())" 
+In above example we see that the parentheses at index 1 (')') ,index 7('(') and 
+index 10 (')') respectively are unbalanced or they dont make a pair with '(' or ')'
+
+How can we remove these unbalanced parentheses?
+-> We can maintain a stack that stores only '(' and if we get a subsequent pair i.e ')' , we 
+can claim it is a balanced pair
+
+Edge cases:
+-> If the stack is empty and we encounter a ')' , we simply erase/ignore this value as there is
+no way we are going to this balanced.
+-> If the stack becomes empty after parsing through the entire string , this indicates we have
+a balanced string
+-> If the stack is not empty after parsing through the entire string we need to remove these '(',
+now how can we remove this '(' , we need to keep track of their indices as well.Solution is we 
+maintain a stack of only the indices of '('.
