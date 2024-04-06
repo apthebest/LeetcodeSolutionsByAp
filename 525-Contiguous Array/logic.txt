@@ -1,0 +1,32 @@
+Problem Statement:
+Given a binary array nums, return the maximum length of a contiguous subarray 
+with an equal number of 0 and 1.
+
+Sample Example:
+Input: nums = [0,1]
+Output: 2
+Explanation: [0, 1] is the longest contiguous subarray with an equal number of 0 and 1.
+
+
+--Thinking through the problem:--
+    In this problem we are asked to get the maximum length of the subarray that has equal count
+    of 0 and 1, essentially we are asked to keep track of both the counts.
+
+--Thinking through the solution--
+The naive solution can be the one where we consider all the subarrays , and keep track of 0 and 1
+count, but that wont be optimal as it is a O(n2) solution.
+What better can we do?
+Essentially we are asked to only count the subarrays with same number of 0 and 1, we can maintain
+this count using a variable cnt , which will hold 3 scenarios:
+1)0 : one count = zero count
+2)>0 : one count > zero count
+3)<0 : one count < zero count 
+Whenever we encounter 1 we add 1 to the cnt and when we encounter 0 we add -1 to the count,
+so now the problems simplifies into finding the max length of subarray with sum as 0.
+
+We can achieve this using an map, which stores the index corresponding to the count, if the
+count reappears we know that in between the subarray, the net count = 0, or we have same number 
+of zero and one.
+
+
+And we go to moon...✨
