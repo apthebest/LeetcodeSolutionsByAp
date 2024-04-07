@@ -1,0 +1,38 @@
+Problem Statement:
+Given a string s containing only three types of characters: '(', ')' and '*', return true if s is valid.
+
+The following rules define a valid string:
+
+Any left parenthesis '(' must have a corresponding right parenthesis ')'.
+Any right parenthesis ')' must have a corresponding left parenthesis '('.
+Left parenthesis '(' must go before the corresponding right parenthesis ')'.
+'*' could be treated as a single right parenthesis ')' or a single left parenthesis '(' or 
+an empty string "".
+
+Thinking through the problem:
+The problem is very much similar to the valid parenthesis problem, the only addition is that
+we have to handle '*' as well
+Now there are three possible cases with '*'
+Case 1 : '*' is '('
+Case 2: '*' is ')'
+Case 3: '*' is ""
+
+
+Thinking through the solution:
+As we are already clear that we only need to handle '*' , now it is worth noting that we will
+only need this '*' as '(' if we have unbalanced ')' and as ')' in case of unbalanced '(', 
+otherwise we can always treat it as an empty string.
+
+Lets take this example : ()(*))
+->The only unbalanced parenthesis is the one at index 5, we can balance by treating the '*' at 
+index 3 as '('
+
+Now how do we know when to use it as ')' and '('?
+->We will use it as '(' if we have unbalanced ')' at a later index and vice versa
+
+How to keep track of '*'?
+We can maintain another stack, but wait in case of '(' left in our primary stack
+where we'll require to use them as ')' , we also need to mindful of the index(imagine the case ")(" ) , 
+so we'll need to store the index as well of the '*' 
+
+Finally we can have two stacks one to keep track of '(' and another to keep track of ')'
